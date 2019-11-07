@@ -1,2 +1,7 @@
 **/*.png
+.ipynb_checkpoints/
+red
+*test*
+*train*
 **/*.jpg
+**/.DS_Store
