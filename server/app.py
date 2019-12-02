@@ -12,7 +12,8 @@ from time import gmtime, strftime
 app = Flask(__name__)
 CORS(app)
 # model = torch.load('../models/model_blue_20191104-12-02.pt') # old model
-model = torch.load('../models/model_carimages_20191106-14-21.pt') # new model
+model = torch.load('../models/model_carimages_NOVEERLEFT_20191106-20-46.pt') # no veer left model
+# model = torch.load('../models/model_carimages_20191106-22-00.pt') # new model
 model.eval()
 
 STATES = {
@@ -54,7 +55,7 @@ def classify():
 
         prediction_string = STATES[predicted.item()]
         dt = strftime("%Y-%m-%d-%H-%M-%S", gmtime())
-        pil_img.save('captures/capture-%s-%s.png' % (prediction_string, dt))
+        pil_img.save('captures/%s-%s-capture.png' % (dt, prediction_string))
         print('PREDICTION: ' + prediction_string)
 
         return str(predicted.item())

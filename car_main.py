@@ -19,8 +19,6 @@ STATES = {
 }
 SLEEP_SECONDS = 2
 
-current_state = 'straight'
-
 def main():
 	print('STARTING CAR')
 
@@ -36,6 +34,7 @@ def main():
 
 	# bw.speed = 20
 	turn_cam_down(cam)
+	current_state = 'straight'
 
 	while True:
 		print('TAKING PIC')
@@ -59,7 +58,7 @@ def main():
 		current_state = prediction
 
 		print('SLEEPING')
-		sleep_car(0.25)
+		sleep_car(0.05)
 		print('')
 		print('')
 
@@ -77,7 +76,7 @@ def turn_cam_down(cam):
 
 def turn_right(fw):
 	print('----- TURNING RIGHT -----')
-	fw.turn(132)
+	fw.turn(120)
 
 
 def turn_straight(fw):
